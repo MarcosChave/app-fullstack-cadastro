@@ -25,10 +25,13 @@ const App = () => {
   //axios espera duas informações: endereço, objeto com dados que o back espera receber
   //para consumir a api necessita do async e await
   async function addNewUser() {
-    const { data: newUser } = await axios.post('http://localhost:3001/users', {
-      name: inputName.current.value,
-      age: inputAge.current.value
-    }) //colocando o metodo de gravar usuário
+    const { data: newUser } = await axios.post(
+      'https://backend-users.vercel.app/users',
+      {
+        name: inputName.current.value,
+        age: inputAge.current.value
+      }
+    ) //colocando o metodo de gravar usuário
 
     setUsers([...users, newUser])
 
